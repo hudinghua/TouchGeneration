@@ -27,12 +27,15 @@ gulp.task('sass',function(){
 		.pipe(gulp.dest('dist/public/styles'));
 });
 
+gulp.task('typescript',function(){
+	tsProject.src()
+	.pipe(tsProject()).js
+	//.pipe(uglify())
+	.pipe(gulp.dest("dist/public/js"))
+});
+
 
 
 gulp.task("default",function(){
-	gulp.run('sass');
-	return tsProject.src()
-			.pipe(tsProject()).js
-			//.pipe(uglify())
-			.pipe(gulp.dest("dist/public/js"))
+	gulp.run(['sass','typescript']);
 });
